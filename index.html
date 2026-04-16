@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retro Mobile Games</title>
+
+<style>
+body {
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#0f172a;
+  color:white;
+}
+
+/* Header */
+.header {
+  padding:20px;
+  font-size:28px;
+  font-weight:700;
+  text-align:center;
+}
+
+/* Grid */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  padding:20px;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* Card */
+.card {
+  background:#1e293b;
+  border-radius:16px;
+  overflow:hidden;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-8px);
+  box-shadow:0 15px 40px rgba(0,0,0,0.5);
+}
+
+.card img {
+  width:100%;
+  height:140px;
+  object-fit:cover;
+}
+
+.info {
+  padding:12px;
+}
+
+.name {
+  font-size:18px;
+  font-weight:600;
+}
+
+/* Page */
+.page {
+  display:none;
+  padding:20px;
+  max-width:900px;
+  margin:auto;
+}
+
+.back {
+  margin-bottom:15px;
+  cursor:pointer;
+  color:#38bdf8;
+}
+
+.download {
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 18px;
+  background:#2563eb;
+  border-radius:10px;
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">🎮 Retro Mobile Games</div>
+
+<!-- HOME -->
+<div id="home" class="grid">
+
+  <div class="card" onclick="openGame('game1')">
+    <img src="game.png">
+    <div class="info">
+      <div class="name">Small Planet</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- GAME PAGE -->
+<div id="game1" class="page">
+  <div class="back" onclick="goHome()">← Back</div>
+
+  <h2>Small Planet</h2>
+  <img src="game.png" style="width:100%;max-width:400px;border-radius:12px">
+
+  <p>
+    A classic retro mobile game. Simple, fun and nostalgic.
+  </p>
+
+  <a href="smallplanet.apk" class="download">Download APK</a>
+</div>
+
+<script>
+function openGame(id){
+  document.getElementById("home").style.display="none";
+  document.getElementById(id).style.display="block";
+}
+
+function goHome(){
+  document.getElementById("home").style.display="grid";
+  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+}
+</script>
+
+</body>
+</html>
